@@ -1,9 +1,17 @@
 Sub Button1_Click()
 
-    Worksheets("Data").Cells.ClearContents
+    Dim Data As Worksheet
+    Set Data = Worksheets("Data")
+    With Data
+        .Cells.Value = Empty
+        .[A1].Select
+        .Paste
+    End With
+    Set Data = Nothing
     
-    Dim ov As Object
-    Set ov = Worksheets("Overview")
-    ov.Select 'Triggers the Activate() event of sheet Overview
+    Dim Ov As Object
+    Set Ov = Worksheets("Overview")
+    Ov.Select
+    set Ov = Nothing
 
 End Sub
