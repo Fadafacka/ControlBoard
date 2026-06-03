@@ -1,5 +1,23 @@
 Private Sub Worksheet_Activate()
 
+    Dim Data As Worksheet
+    Dim R As Range
+    Dim i As Long
+    Dim Dict As Scripting.Dictionary
+    
+    Set Data = Worksheets("Data")
+    Set R = Data.UsedRange
+    Set Dict = New Scripting.Dictionary
+    
+    For i = 2 To R.Rows.Count
+        dlv = Data.Cells(i, 3).Value
+        stt = Data.Cells(i, 15).Value
+        If Not Dict.Exists(dlv) Then Dict.Add dlv, stt
+    Next
+    
+    'Debug.Print R.Columns.Count
+    'Debug.Print R.Rows.Count
+    
     ThisWorkbook.RefreshAll
 
 End Sub
