@@ -4,7 +4,7 @@ Private Sub Worksheet_Activate()
     Dim R As Range
     Dim i As Long
     Dim Dict As New Scripting.Dictionary
-    Dim Coll As New Collection
+    Dim Coll As Collection
     
     Set Data = Worksheets("Data")
     Set R = Data.UsedRange
@@ -13,8 +13,10 @@ Private Sub Worksheet_Activate()
         dlv = Data.Cells(i, 3).Value
         stt = Data.Cells(i, 15).Value
         If Not Dict.Exists(dlv) Then
-'hereee     Dict.Add dlv, stt
-        Else
+            Set Coll = New Collection
+            Coll.Add (stt)
+            Dict.Add dlv, Coll
+        'Else
             
         End If
     Next
