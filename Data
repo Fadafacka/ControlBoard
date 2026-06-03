@@ -1,0 +1,8 @@
+Private Sub Worksheet_Activate()
+
+    With ActiveWindow
+        .ScrollRow = 1
+        .ScrollColumn = 1
+    End With
+
+End Sub
